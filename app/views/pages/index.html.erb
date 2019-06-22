@@ -1,0 +1,93 @@
+<!--
+<div class="products-wrap border-top-0">
+      <div class="container-fluid">
+        <div class="row no-gutters products">
+          <div class="col-6 col-md-6 col-lg-4">
+            <a href="#" class="item">
+              <%= image_tag("/assets/product_1.jpg", class: "img-fluid") %>
+              <div class="item-info">
+                <h3>The Shoe</h3>
+                <span class="collection d-block">Summer Collection</span>
+                <strong class="price">$9.50</strong>
+              </div>
+            </a>
+          </div>
+          <div class="col-6 col-md-6 col-lg-4">
+            <a href="#" class="item">
+              <span class="tag">Sale</span>
+              
+              <%= image_tag("/assets/product_2.jpg", class: "img-fluid") %>
+              <div class="item-info">
+                <h3>Marc Jacobs Bag</h3>
+                <span class="collection d-block">Summer Collection</span>
+                <strong class="price">$9.50 <del>$30.00</del></strong>
+              </div>
+            </a>
+          </div>
+          <div class="col-6 col-md-6 col-lg-4">
+            <a href="#" class="item">
+              <%= image_tag("/assets/product_3.jpg", class: "img-fluid") %>
+              <div class="item-info">
+                <h3>The  Belt</h3>
+                <span class="collection d-block">Summer Collection</span>
+                <strong class="price">$9.50</strong>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-6 col-lg-4">
+            <a href="#" class="item">
+              <%= image_tag("/assets/product_1.jpg", :class => "img-fluid" ) %>
+              <div class="item-info">
+                <h3>The Shoe</h3>
+                <span class="collection d-block">Summer Collection</span>
+                <strong class="price">$9.50</strong>
+              </div>
+            </a>
+          </div>
+          <div class="col-6 col-md-6 col-lg-4">
+            <a href="#" class="item">
+              <span class="tag">Sale</span>
+              <%= image_tag("/assets/product_2.jpg", class: "img-fluid") %>
+              <div class="item-info">
+                <h3>Marc Jacobs Bag</h3>
+                <span class="collection d-block">Summer Collection</span>
+                <strong class="price">$9.50 <del>$30.00</del></strong>
+              </div>
+            </a>
+          </div>
+          <div class="col-6 col-md-6 col-lg-4">
+            <a href="#" class="item">
+              <%= image_tag("/assets/product_3.jpg", class: "img-fluid")  %>
+              <div class="item-info">
+                <h3>The  Belt</h3>
+                <span class="collection d-block">Summer Collection</span>
+                <strong class="price">$9.50</strong>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+-->
+<div class="products-wrap border-top-0">
+  <div class="container-fluid">
+    <div class="row no-gutters products">
+
+     <% @products.each do |product| %>
+        <div class="col-6 col-md-6 col-lg-4">
+          <a href="#" class="item">
+            <%= image_tag( product.img_url, class: "img-fluid")  %>
+            <%#= image_tag(product.image_url, class: 'list_image') %>
+            <div class="item-info">
+              <h3><%= product.title %></h3>
+              <span class="collection d-block"><%= product.category.title %></span>
+              <strong class="price"><%= product.price %></strong>
+            </div>
+          </a>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
