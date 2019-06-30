@@ -1,0 +1,79 @@
+<div class="custom-border-bottom py-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Login here</strong></div>
+    </div>
+  </div>
+</div>
+
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p id="notice"><%= notice %></p>
+                <h2 class="h3 mb-3 text-black">Login Here</h2>
+            </div>
+            <div class="col-md-7">
+                <%= form_with do |form| %>
+                    <div class="p-3 p-lg-5 border">   
+                        <div class="field">
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <%= form.label :username, class: "text-black" %>
+                                </div>
+                                <div class="col-md-6">
+                                    <%= form.text_field :username, id: :user_username, class:"form-control" %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <%= form.label :password, class: "text-black" %>
+                                </div>
+                                <div class="col-md-6">
+                                    <%= form.password_field :password, id: :user_password, class:"form-control" %>
+                                </div>
+                            </div>
+                        </div>
+
+                         <div class="actions">
+                            <div class="form-group row">
+                                <div class="col-lg-6 offset-3">
+                                    <%= form.submit 'Login', :class =>"btn btn-primary btn-lg btn-block" %>
+                                </div>        
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+        <%= link_to 'Get registered', new_user_path %>
+    </div>
+</div>
+
+<!--
+
+      <div class="field">
+        <div class="form-group row">
+            <div class="col-md-6">
+                <%= label_tag :username, class: "text-black" %>
+            </div>
+            <div class="col-md-6">
+                <%= text_field_tag :username, id: :user_username, class:"form-control" %>
+            </div>
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="form-group row">
+            <div class="col-md-6">
+                <%= label_tag :password, class: "text-black" %>
+            </div>
+            <div class="col-md-6">
+                <%= password_field_tag :password, id: :user_password, class:"form-control" %>
+            </div>
+        </div>
+      </div>
+      
+      -->

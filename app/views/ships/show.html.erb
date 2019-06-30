@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fname:</strong>
+  <%= @ship.fname %>
+</p>
+
+<p>
+  <strong>Lname:</strong>
+  <%= @ship.lname %>
+</p>
+
+<p>
+  <strong>Add1:</strong>
+  <%= @ship.add1 %>
+</p>
+
+<p>
+  <strong>Add2:</strong>
+  <%= @ship.add2 %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @ship.phone %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @ship.country %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @ship.state %>
+</p>
+
+<%= link_to 'Edit', edit_ship_path(@ship) %> |
+<%= link_to 'Back', ships_path %>

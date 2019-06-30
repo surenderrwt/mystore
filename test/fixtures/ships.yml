@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fname: MyString
+  lname: MyString
+  add1: MyText
+  add2: MyText
+  phone: 9.99
+  country: one
+  state: one
+
+two:
+  fname: MyString
+  lname: MyString
+  add1: MyText
+  add2: MyText
+  phone: 9.99
+  country: two
+  state: two

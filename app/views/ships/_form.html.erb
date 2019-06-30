@@ -1,0 +1,52 @@
+<%= form_with(model: ship, local: true) do |form| %>
+  <% if ship.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ship.errors.count, "error") %> prohibited this ship from being saved:</h2>
+
+      <ul>
+      <% ship.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :fname %>
+    <%= form.text_field :fname, id: :ship_fname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lname %>
+    <%= form.text_field :lname, id: :ship_lname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :add1 %>
+    <%= form.text_area :add1, id: :ship_add1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :add2 %>
+    <%= form.text_area :add2, id: :ship_add2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone, id: :ship_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country_id %>
+    <%= form.text_field :country_id, id: :ship_country_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state_id %>
+    <%= form.text_field :state_id, id: :ship_state_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
