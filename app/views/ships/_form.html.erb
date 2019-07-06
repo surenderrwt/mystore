@@ -37,14 +37,31 @@
   </div>
 
   <div class="field">
-    <%= form.label :country_id %>
-    <%= form.text_field :country_id, id: :ship_country_id %>
+    <%= form.label :country_id  %>
+    <%#= form.text_field :country_id, id: :ship_country_id %>
+    <%= select_tag "ship[country_id]", options_for_select(@countries.collect{|c| [c.name, c.id]}, selected: params[:country_id]),
+      prompt: "Select country", class: "form-control", id: "country_id"
+    
+    %>
+
   </div>
 
+  <div class="feild">
+    <%= form.label :state_id  %>
+    <%#= form.text_field :state_id, id: :ship_state_id %>
+   <%= select_tag "ship[state_id]", options_for_select(@states.collect{|s| [s.name, s.id]}, selected: params[:country_id]),
+      prompt: "Select state", class: "form-control", id: "state_id"
+    
+    %>
+  </div>
+
+  <!-- 
   <div class="field">
     <%= form.label :state_id %>
     <%= form.text_field :state_id, id: :ship_state_id %>
-  </div>
+  </div> 
+  -->
+
 
   <div class="actions">
     <%= form.submit %>

@@ -27,12 +27,12 @@
 
 <p>
   <strong>Country:</strong>
-  <%= @ship.country %>
+  <%= @ship.country.name %>
 </p>
 
 <p>
   <strong>State:</strong>
-  <%= @ship.state %>
+  <%= @ship.state.name %>
 </p>
 
 <%= link_to 'Edit', edit_ship_path(@ship) %> |

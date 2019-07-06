@@ -1,4 +1,5 @@
 class ShipsController < ApplicationController
+   layout 'front'
   before_action :set_ship, only: [:show, :edit, :update, :destroy]
 
   # GET /ships
@@ -15,17 +16,33 @@ class ShipsController < ApplicationController
   # GET /ships/new
   def new
     @ship = Ship.new
+    @states = []
+    @countries = Country.all.order(:name)    
   end
 
   # GET /ships/1/edit
   def edit
+    @states = []
+    @countries = Country.all.order(:name)
+  end
+
+
+  def getstates
+      @states = Country.find(params[:country_id]).states
+      respond_to do |format|
+        format.json {
+          render json: {states: @states}
+        }
+    end
   end
 
   # POST /ships
   # POST /ships.json
   def create
     @ship = Ship.new(ship_params)
-
+    @states = []
+    @countries = Country.all.order(:name)
+    put @ship 
     respond_to do |format|
       if @ship.save
         format.html { redirect_to @ship, notice: 'Ship was successfully created.' }
@@ -40,6 +57,8 @@ class ShipsController < ApplicationController
   # PATCH/PUT /ships/1
   # PATCH/PUT /ships/1.json
   def update
+    @states = []
+    @countries = Country.all.order(:name)
     respond_to do |format|
       if @ship.update(ship_params)
         format.html { redirect_to @ship, notice: 'Ship was successfully updated.' }

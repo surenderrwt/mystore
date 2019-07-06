@@ -24,8 +24,8 @@
         <td><%= ship.add1 %></td>
         <td><%= ship.add2 %></td>
         <td><%= ship.phone %></td>
-        <td><%= ship.country %></td>
-        <td><%= ship.state %></td>
+        <td><%= ship.country.name %></td>
+        <td><%= ship.state.name %></td>
         <td><%= link_to 'Show', ship %></td>
         <td><%= link_to 'Edit', edit_ship_path(ship) %></td>
         <td><%= link_to 'Destroy', ship, method: :delete, data: { confirm: 'Are you sure?' } %></td>

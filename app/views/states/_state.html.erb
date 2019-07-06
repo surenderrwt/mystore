@@ -1,0 +1,5 @@
+<div class="field">
+    <%= form.label :state_id  %>
+    <%#= form.text_field :country_id, id: :state_country_id %>
+    <%= form.select :state_id, @states.collect { |cunt| [cunt.name, cunt.id] } %>
+  </div>
