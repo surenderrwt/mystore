@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
   belongs_to :user
-  has_one :ship
+  belongs_to :ship
+  accepts_nested_attributes_for :ship, allow_destroy: true
   has_many :line_items
 
   enum payment: {
@@ -10,8 +11,8 @@ class Order < ApplicationRecord
 
   enum order_status: {
     "Unsuccess" => 0,
-    "In Progress" => 1
-    "Success" =>3
+    "In Progress" => 1,
+    "Success" => 2
   }
 
 end

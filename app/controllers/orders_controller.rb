@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  layout "front", only:[:new, :show, :edit]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   # GET /orders
@@ -14,7 +15,11 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
+    @states = []
+    @countries = Country.all.order(:name) 
     @order = Order.new
+    @user =User.find_by(id: session[:user_id])
+    
   end
 
   # GET /orders/1/edit
@@ -24,8 +29,15 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(order_params)
-
+    #user =User.find_by(session[:user_id])
+   
+    @states = []
+    @countries = Country.all.order(:name) 
+    @user =User.find_by(id: session[:user_id])
+    @uorder = @user.orders.new
+    ship = Ship.new(fname: params[:order][:fname], lname: params[:order][:lname], add1: params[:order][:add1], add2: params[:order][:add2], phone: params[:order][:phone], country_id: params[:order][:country_id], state_id: params[:order][:state_id])
+    @order = @uorder.ship = ship
+        
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
@@ -69,6 +81,8 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:user_id, :ship_id, :total, :payment, :order_status, :delivery_date)
+      params.require(:order).permit(:user_id, :total, :payment, :order_status, :delivery_date, :ship_attribute => [:fname, :lname, :add1, :add2, :phone, :country_id, :state_id] )
     end
+
+    
 end
